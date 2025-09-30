@@ -1,6 +1,4 @@
 "use client";
-export default function Projects(){return <main style={{padding:24}}>Projects page placeholder</main>;}
-"use client";
 
 import { useEffect, useState } from "react";
 import { apiGet, apiPost } from "@/lib/api";
@@ -44,7 +42,9 @@ export default function ProjectsPage() {
     }
   }
 
-  useEffect(() => { load(); }, []);
+  useEffect(() => {
+    load();
+  }, []);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -90,7 +90,11 @@ export default function ProjectsPage() {
               value={form.status}
               onChange={e => setForm({ ...form, status: e.target.value as typeof form.status })}
             >
-              {STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
+              {STATUSES.map(s => (
+                <option key={s} value={s}>
+                  {s}
+                </option>
+              ))}
             </select>
           </div>
           <textarea
